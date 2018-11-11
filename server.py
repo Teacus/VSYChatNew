@@ -29,8 +29,9 @@ class Server_cl():
         """Handles a single client connection."""
 
         name = client.recv(self.BUFSIZ).decode("utf8")
-        welcome = "Welcome " + name + " If you ever want to quit, type {quit} to exit."
+        welcome = "Welcome " + name + " , if you ever want to quit, type {quit} to exit."
         client.send(bytes(welcome, "utf8"))
+
         msg = name + " has joined the chat!"
         print(msg)
         self.broadcast(bytes(msg, "utf8"))
